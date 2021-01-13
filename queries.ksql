@@ -1,0 +1,3 @@
+CREATE  STREAM userprofile_stream (userid INT, firstname VARCHAR, lastname VARCHAR, countrycode VARCHAR, rating DOUBLE) WITH (KAFKA_TOPIC='USERPROFILE', VALUE_FORMAT='JSON', PARTITIONS=1);
+
+CREATE STREAM bestusers_stream as select * from userprofile_stream where rating > 4.1;
